@@ -158,6 +158,11 @@ async def get_current_user(credentials: HTTPAuthorizationCredentials = Depends(s
     except jwt.InvalidTokenError:
         raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Invalid token")
 
+# Health check route
+@api_router.get("/")
+async def root():
+    return {"message": "EHR System API is running", "status": "healthy"}
+
 # Authentication routes
 @api_router.post("/register")
 async def register(user_data: UserCreate):
