@@ -1,34 +1,196 @@
-.App-logo {
-    height: 40vmin;
-    pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-    .App-logo {
-        animation: App-logo-spin infinite 20s linear;
-    }
+.App {
+  text-align: center;
 }
 
 .App-header {
-    background-color: #0f0f10;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: white;
+  background-color: #ffffff;
+  padding: 20px;
+  color: #333333;
 }
 
 .App-link {
-    color: #61dafb;
+  color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
+.App-link img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 4px solid #f0f0f0;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* EHR System Specific Styles */
+.ehr-card {
+  @apply bg-white rounded-lg shadow-md p-6 transition-shadow hover:shadow-lg;
+}
+
+.ehr-button {
+  @apply bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors font-medium;
+}
+
+.ehr-button-secondary {
+  @apply bg-gray-200 text-gray-800 px-4 py-2 rounded-lg hover:bg-gray-300 transition-colors font-medium;
+}
+
+.ehr-input {
+  @apply w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent;
+}
+
+.ehr-table {
+  @apply min-w-full divide-y divide-gray-200;
+}
+
+.ehr-table th {
+  @apply px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider;
+}
+
+.ehr-table td {
+  @apply px-6 py-4 whitespace-nowrap text-sm text-gray-900;
+}
+
+.status-badge {
+  @apply inline-flex px-2 py-1 text-xs font-semibold rounded-full;
+}
+
+.status-registered {
+  @apply bg-yellow-100 text-yellow-800;
+}
+
+.status-consulting {
+  @apply bg-green-100 text-green-800;
+}
+
+.status-completed {
+  @apply bg-blue-100 text-blue-800;
+}
+
+/* Role-specific styling */
+.role-super_admin {
+  @apply bg-purple-100 text-purple-800;
+}
+
+.role-doctor {
+  @apply bg-blue-100 text-blue-800;
+}
+
+.role-front_desk {
+  @apply bg-green-100 text-green-800;
+}
+
+.role-patient {
+  @apply bg-gray-100 text-gray-800;
+}
+
+/* Animation classes */
+.fade-in {
+  animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.slide-up {
+  animation: slideUp 0.3s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Loading spinner */
+.loading-spinner {
+  @apply animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600;
+}
+
+/* Responsive design helpers */
+@media (max-width: 768px) {
+  .ehr-responsive-hide {
+    display: none;
+  }
+  
+  .ehr-mobile-stack {
+    @apply flex flex-col space-y-2;
+  }
+  
+  .ehr-mobile-full-width {
+    @apply w-full;
+  }
+}
+
+/* Custom scrollbar */
+.ehr-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.ehr-scrollbar::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 3px;
+}
+
+.ehr-scrollbar::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 3px;
+}
+
+.ehr-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
+
+/* Form validation styles */
+.ehr-input-error {
+  @apply border-red-500 focus:ring-red-500;
+}
+
+.ehr-error-text {
+  @apply text-red-600 text-sm mt-1;
+}
+
+/* Success states */
+.ehr-success-text {
+  @apply text-green-600 text-sm;
+}
+
+.ehr-success-bg {
+  @apply bg-green-50 border border-green-200;
+}
+
+/* Dashboard grid layout */
+.ehr-dashboard-grid {
+  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6;
+}
+
+.ehr-stat-card {
+  @apply bg-white rounded-lg shadow p-6 border-l-4;
+}
+
+.ehr-stat-card-blue {
+  @apply border-blue-500;
+}
+
+.ehr-stat-card-green {
+  @apply border-green-500;
+}
+
+.ehr-stat-card-yellow {
+  @apply border-yellow-500;
+}
+
+.ehr-stat-card-purple {
+  @apply border-purple-500;
 }
